@@ -1,0 +1,41 @@
+name: copitaxi_app
+description: "Aplicación de gestión de carreras de taxis en tiempo real."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Firebase para autenticación y base de datos
+  firebase_core: ^2.20.0
+  firebase_auth: ^4.15.0
+  cloud_firestore: ^4.14.0
+
+  # Geolocalización y mapas
+  geolocator: ^10.1.0
+  google_maps_flutter: ^2.5.0
+
+  # Estado y gestión de datos
+  provider: ^6.1.2
+
+  # Flet para backend en Python
+  flet: ^0.18.0
+
+  # Otras utilidades
+  intl: ^0.19.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_local_notifications: ^16.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
