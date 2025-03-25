@@ -6,7 +6,7 @@ import 'firebase_options.dart';
 
 // Manejo de notificaciones en segundo plano
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print("Mensaje recibido en segundo plano: ${message.notification?.title}");
+  print("Mensaje recibido en segundo plano, espera: ${message.notification?.title}");
 }
 
 void main() async {
