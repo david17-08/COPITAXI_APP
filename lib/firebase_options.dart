@@ -87,4 +87,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'copitaxi-93622.firebasestorage.app',
     measurementId: 'G-XEKW0L146Z',
   );
+
 }

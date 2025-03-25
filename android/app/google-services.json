@@ -29,6 +29,13 @@
             {
               "client_id": "213326261794-p4o81ahrn61r7g8dclg67ajujgv779ig.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "213326261794-8oiapl90bg4qp1ffffp2c1pc6ekodv79.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.copitaxiApp"
+              }
             }
           ]
         }
@@ -58,6 +65,13 @@
             {
               "client_id": "213326261794-p4o81ahrn61r7g8dclg67ajujgv779ig.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "213326261794-8oiapl90bg4qp1ffffp2c1pc6ekodv79.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.copitaxiApp"
+              }
             }
           ]
         }
