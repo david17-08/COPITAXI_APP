@@ -41,7 +41,7 @@ class _AdminScreenState extends State<AdminScreen> {
 
   // Función para aceptar/rechazar choferes
   void _updateDriverStatus(String driverId, bool accept) async {
-    await _firestore.collection('drivers').doc(driverId).update({
+    await _firestore.collection('users').doc(driverId).update({
       'approved': accept,
     });
 
@@ -53,12 +53,21 @@ class _AdminScreenState extends State<AdminScreen> {
     );
   }
 
+  // Obtener choferes pendientes
+  Stream<QuerySnapshot> getPendingDrivers() {
+    return _firestore
+        .collection('users')
+        .where('role', isEqualTo: 'driver') // Solo choferes
+        .where('approved', isEqualTo: false) // Solo los pendientes
+        .snapshots();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Panel de Administrador"),
-        backgroundColor: const Color.fromARGB(255, 211, 208, 27), // Color oscuro elegante
+        backgroundColor: const Color.fromARGB(255, 211, 208, 27),
         actions: [
           IconButton(
             icon: Icon(Icons.account_circle, size: 30),
@@ -82,10 +91,7 @@ class _AdminScreenState extends State<AdminScreen> {
             SizedBox(height: 10),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: _firestore
-                    .collection('drivers')
-                    .where('approved', isEqualTo: false) // Solo los pendientes
-                    .snapshots(),
+                stream: getPendingDrivers(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
                     return Center(child: CircularProgressIndicator());
@@ -117,10 +123,10 @@ class _AdminScreenState extends State<AdminScreen> {
                             child: Icon(Icons.person, color: Colors.white),
                           ),
                           title: Text(
-                            driver['name'],
+                            driver['email'],
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          subtitle: Text(driver['email']),
+                          subtitle: Text("Pendiente de aprobación"),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
